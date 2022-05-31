@@ -1,24 +1,20 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Group
 
+LIMIT_POSTS = 10
+
 
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:10]
-    template = 'posts/index.html'
-    title = 'Последние обновления на сайте'
-    text = 'Главная страница'
+    posts = Post.objects.order_by('-pub_date')[:LIMIT_POSTS]
     context = {
-        # В словарь можно передать переменную
         'posts': posts,
-        'title': title,
-        'text': text,
     }
-    return render(request, template, context)
+    return render(request, 'posts/index.html', context)
 
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).order_by('-pub_date')[:10]
+    posts = Post.objects.all()[:LIMIT_POSTS]
     context = {
         'group': group,
         'posts': posts,
