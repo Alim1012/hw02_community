@@ -1,25 +1,18 @@
-{% load static %}
-<!DOCTYPE html> <!-- Используется html 5 версии -->
-<html lang="ru"> <!-- Язык сайта - русский -->
-<title> Здесь будет описание группы </title>
+<title>
+  {% block title %}Записи сообщества{% endblock %}
+</title>
 {% include 'base.html' %}
-  <body>
-    {% include 'includes/header.html' %}
-    <main>
-      <!-- класс py-5 создает отступы сверху и снизу блока -->
-      <div class="container py-5">
-        <h1>{{ group.title }}</h1>
-        <p>
-          {{ group.discription }} Группа тайных поклонников графа.
-        </p>
-        {% for post in posts %}
-          <article>
-            {% include 'includes/card_post.html' %}
-            <p>{{ post.text }}</p>
-            {% if not forloop.last %}<hr>{% endif %}
-          </article>
-        {% endfor %}
-      </div>
-    </main>
-    {% include 'includes/footer.html' %}   
-  </body>
+{% include 'includes/header.html' %}
+<div class="container py-5">
+<h1>{{ group.title }}</h1>
+<p>
+  {{ group.discription }} Группа тайных поклонников графа.
+</p>
+{% for post in posts %}
+  <article>
+    {% include 'includes/card_post.html' %}
+      <p>{{ post.text }}</p>
+    {% if not forloop.last %}<hr>{% endif %}
+  </article>
+{% endfor %}
+{% include 'includes/footer.html' %}
