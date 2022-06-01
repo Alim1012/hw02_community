@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Записи сообщества{% endblock %}
+{% block title %}{{ group.title }}{% endblock %}
 {% include 'base.html' %}
 {% block content %}
 <div class="container py-5">
@@ -8,10 +8,7 @@
   {{ group.discription }} Группа тайных поклонников графа.
 </p>
 {% for post in posts %}
-  <article>
-    {% include 'includes/card_post.html' %}
-      <p>{{ post.text }}</p>
-    {% if not forloop.last %}<hr>{% endif %}
-  </article>
+  {% include 'includes/card_post.html' %}
+  {% if not forloop.last %}<hr>{% endif %}
 {% endfor %}
 {% endblock %}
