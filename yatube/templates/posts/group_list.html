@@ -1,8 +1,7 @@
-<title>
-  {% block title %}Записи сообщества{% endblock %}
-</title>
+{% extends "base.html" %}
+{% block title %}Записи сообщества{% endblock %}
 {% include 'base.html' %}
-{% include 'includes/header.html' %}
+{% block content %}
 <div class="container py-5">
 <h1>{{ group.title }}</h1>
 <p>
@@ -15,4 +14,4 @@
     {% if not forloop.last %}<hr>{% endif %}
   </article>
 {% endfor %}
-{% include 'includes/footer.html' %}
+{% endblock %}

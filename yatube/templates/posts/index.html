@@ -1,8 +1,7 @@
-<title>
-  {% block title %}Последние обновления на сайте{% endblock %}
-</title>
+{% extends "base.html" %}
+{% block title %}Последние обновления на сайте{% endblock %}
 {% include 'base.html' %}
-{% include 'includes/header.html' %}
+{% block content %}
   <div class="container py-5">     
     <h1> Главная страница </h1>
     <article>
@@ -15,5 +14,5 @@
         {% if not forloop.last %}<hr>{% endif %}
       {% endfor %}
     </article>
-  </div>  
-{% include 'includes/footer.html' %}      
+  </div>
+{% endblock %}      
