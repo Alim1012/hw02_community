@@ -5,7 +5,7 @@ LIMIT_POSTS = 10
 
 
 def index(request):
-    posts = Post.objects.all()[:LIMIT_POSTS]
+    posts = Post.objects.select_related()[:LIMIT_POSTS]
     context = {
         'posts': posts,
     }
