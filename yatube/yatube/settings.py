@@ -4,17 +4,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-(()x7z5*s#cf14*1r9woe_&ww-v_7tw7g+91szvgl=t7u4y82'
 DEBUG = True
 
-LOGIN_URL = 'users:login'
-LOGIN_REDIRECT_URL = 'posts:index'
-
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    'core.apps.CoreConfig',
-    'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
