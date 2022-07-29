@@ -8,7 +8,7 @@ LIMIT_LIST = 10
 
 
 def index(request):
-    post_list = Post.objects.all()
+    post_list = Post.objects.all().order_by('-pub_date')
     paginator = Paginator(post_list, LIMIT_LIST)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -21,7 +21,7 @@ def index(request):
 
 
 def group_posts(request, slug):
-    post_list = Post.objects.all()
+    post_list = Post.objects.all().order_by('-pub_date')
     paginator = Paginator(post_list, LIMIT_LIST)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

@@ -7,9 +7,10 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('text', 'group')
 
-    
     def clean_text(self):
         data = self.cleaned_data['text']
         if '' not in data.lower():
-            raise forms.ValidationError('Вы обязательно должны заполнить это поле!')
+            raise forms.ValidationError(
+                'Вы обязательно должны заполнить это поле!'
+            )
         return data
