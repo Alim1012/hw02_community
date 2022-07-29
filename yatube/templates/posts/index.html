@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Последние обновления на сайте{% endblock %}
 {% include 'base.html' %}
-{% block content %}    
-    <h1> Главная страница </h1>
-    <article>
-      {% for post in posts %}
-        {% include 'includes/card_post.html' %}
-      {% endfor %}
-    </article>
+{% block content %}  
+  <h1> Главная страница </h1>
+  <article>
+    {% for post in page_obj %}
+      {% include 'posts/includes/card_post.html' %}
+    {% endfor %}
+  </article>
 {% endblock %}      

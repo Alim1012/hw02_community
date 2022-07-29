@@ -2,11 +2,11 @@
 {% block title %}{{ group.title }}{% endblock %}
 {% include 'base.html' %}
 {% block content %}
-<h1>{{ group.title }}</h1>
-<p>
-  {{ group.discription }} Группа тайных поклонников графа.
-</p>
-{% for post in posts %}
-  {% include 'includes/card_post.html' %}
-{% endfor %}
+  <h1>{{ group.title }}</h1>
+  <p>
+    {{ group.discription }} Группа тайных поклонников графа.
+  </p>
+  {% for post in page_obj %}
+    {% include 'posts/includes/card_post.html' %}
+  {% endfor %}
 {% endblock %}
